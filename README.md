@@ -50,13 +50,13 @@ American Express displays targeted digital offers to cardholders. The goal is to
 
 ```mermaid
 flowchart TD
-    A[Raw Data\ntrain / test / events / transactions / metadata] --> B[EDA\nCTR analysis missing values temporal trends]
-    B --> C[Data Cleaning\nMedian imputation mode fill downcasting dedup]
-    C --> D[Feature Engineering v1\nCustomer×Offer CTR offer popularity customer engagement]
-    D --> E[Feature Engineering v2\nTransaction recency frequency total amount]
-    E --> F[LightGBM Baseline\n4-fold KFold binary classification]
-    F --> G[MAP@7 Evaluation\nper-customer offer ranking]
-    G --> H[Submission File\nr2_submission_amex.csv]
+    A[Raw Data] --> B[EDA]
+    B --> C[Data Cleaning]
+    C --> D[Feature Engineering v1\nEvent CTR and offer popularity]
+    D --> E[Feature Engineering v2\nTransaction recency and frequency]
+    E --> F[LightGBM Baseline\n4-fold KFold]
+    F --> G[MAP at 7 Evaluation\nPer-customer offer ranking]
+    G --> H[Submission File]
 ```
 
 ---
@@ -212,4 +212,4 @@ Decision-Science-Track/
 | LightGBM Documentation | https://lightgbm.readthedocs.io |
 | MAP@K metric explanation | https://www.kaggle.com/code/debarshichanda/map-at-k |
 | pandas read_parquet | https://pandas.pydata.org/docs/reference/api/pandas.read_parquet.html |
-| AMEX Campus Challenge | Kaggle (private competition) |# Decision-Science-Track
+| AMEX Campus Challenge | Kaggle (private competition) |
