@@ -1,5 +1,10 @@
 # Predictive Modeling for Digital Offer Click-Through 
 
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
+![LightGBM](https://img.shields.io/badge/Model-LightGBM-02569B)
+![Kaggle](https://img.shields.io/badge/Kaggle-AMEX%20Campus%20Challenge-20BEFF?logo=kaggle&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 **LightGBM ranking pipeline with multi-source feature engineering on 770K+ impression records**
 
 ---
@@ -12,9 +17,9 @@ The pipeline spans three sequential notebooks:
 
 | Notebook | Stage | Output |
 |---|---|---|
-| `processing and feature engineering 1.ipynb` | EDA + Data Cleaning + Feature Engineering v1 | `fe_v1_train.parquet`, `fe_v1_test.parquet` |
-| `feature engineering 2.ipynb` | Transaction Feature Engineering v2 | `fe_v2_train.parquet`, `fe_v2_test.parquet` |
-| `map score and submission.ipynb` | LightGBM Training + MAP@7 Evaluation + Submission | `r2_submission_amex.csv` |
+| `01_processing_feature_engineering.ipynb` | EDA + Data Cleaning + Feature Engineering v1 | `fe_v1_train.parquet`, `fe_v1_test.parquet` |
+| `02_transaction_features.ipynb` | Transaction Feature Engineering v2 | `fe_v2_train.parquet`, `fe_v2_test.parquet` |
+| `03_training_map7_submission.ipynb` | LightGBM Training + MAP@7 Evaluation + Submission | `r2_submission_amex.csv` |
 
 ---
 
@@ -130,6 +135,8 @@ CV MAP@7 = 0.04832
 | Metric | Value |
 |---|---|
 | CV MAP@7 (4-fold OOF) | **0.04832** |
+| Final leaderboard MAP@7 | <!-- TODO: AMEX Campus Challenge public/private leaderboard MAP@7 --> |
+| Leaderboard rank | <!-- TODO: final rank in the AMEX Campus Challenge --> |
 | Binary log-loss (Fold 1) | 0.1164 (87 rounds) |
 | Binary log-loss (Fold 2) | 0.1080 (101 rounds) |
 | Binary log-loss (Fold 3) | 0.0903 (194 rounds) |
@@ -137,16 +144,20 @@ CV MAP@7 = 0.04832
 | Overall CTR (train) | 4.81% |
 | Training set size | 770,164 rows |
 
+<!-- TODO: LightGBM feature-importance plot (gain-based, top 20 features) from 03_training_map7_submission.ipynb -->
+
 ---
 
 ## Project Structure
 
 ```
-Decision-Science-Track/
+Predictive-Modeling-for-Digital-Offer-Click-Through/
 │
-├── processing and feature engineering 1.ipynb   # EDA + cleaning + FE v1
-├── feature engineering 2.ipynb                  # Transaction FE v2
-├── map score and submission.ipynb                # LightGBM + MAP@7 + submission
+├── 01_processing_feature_engineering.ipynb   # EDA + cleaning + FE v1
+├── 02_transaction_features.ipynb             # Transaction FE v2
+├── 03_training_map7_submission.ipynb         # LightGBM + MAP@7 + submission
+├── requirements.txt
+├── LICENSE
 └── README.md
 ```
 
@@ -155,14 +166,14 @@ Decision-Science-Track/
 ## Notebook Execution Order
 
 ```
-1. processing and feature engineering 1.ipynb
+1. 01_processing_feature_engineering.ipynb
    → Outputs: train_clean.parquet, test_clean.parquet, fe_v1_train.parquet, fe_v1_test.parquet
 
-2. feature engineering 2.ipynb
+2. 02_transaction_features.ipynb
    → Inputs:  fe_v1_train.parquet, fe_v1_test.parquet
    → Outputs: fe_v2_train.parquet, fe_v2_test.parquet
 
-3. map score and submission.ipynb
+3. 03_training_map7_submission.ipynb
    → Inputs:  fe_v2_train.parquet, fe_v2_test.parquet
    → Outputs: lgbm_baseline.pkl, oof_preds.csv, r2_submission_amex.csv
 ```

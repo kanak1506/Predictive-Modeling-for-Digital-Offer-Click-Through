@@ -1,0 +1,12 @@
+# Generated from the imports across 01_processing_feature_engineering.ipynb,
+# 02_transaction_features.ipynb, and 03_training_map7_submission.ipynb.
+# All notebooks were run on Kaggle (CPU, Python 3.11).
+
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+lightgbm
+pyarrow          # parquet engine backing pandas read_parquet/to_parquet
+jupyter
