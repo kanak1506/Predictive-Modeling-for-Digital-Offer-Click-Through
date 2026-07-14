@@ -135,8 +135,6 @@ CV MAP@7 = 0.04832
 | Metric | Value |
 |---|---|
 | CV MAP@7 (4-fold OOF) | **0.04832** |
-| Final leaderboard MAP@7 | <!-- TODO: AMEX Campus Challenge public/private leaderboard MAP@7 --> |
-| Leaderboard rank | <!-- TODO: final rank in the AMEX Campus Challenge --> |
 | Binary log-loss (Fold 1) | 0.1164 (87 rounds) |
 | Binary log-loss (Fold 2) | 0.1080 (101 rounds) |
 | Binary log-loss (Fold 3) | 0.0903 (194 rounds) |
@@ -160,6 +158,31 @@ Predictive-Modeling-for-Digital-Offer-Click-Through/
 ├── LICENSE
 └── README.md
 ```
+
+---
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/kanak1506/Predictive-Modeling-for-Digital-Offer-Click-Through.git
+cd Predictive-Modeling-for-Digital-Offer-Click-Through
+```
+
+### 2. Set up the Python environment
+
+```bash
+python -m venv venv
+source venv/bin/activate        # Linux/macOS
+venv\Scripts\activate           # Windows
+
+pip install -r requirements.txt
+```
+
+### 3. Get the dataset
+
+The AMEX Campus Challenge dataset is not included in this repo (see [Dataset](#dataset)). Attach it as a Kaggle dataset named `amexda`, or adjust `DATA_PATH`/`RAW_DIR` in the notebooks to point at a local copy with the same file layout.
 
 ---
 
@@ -224,3 +247,9 @@ Predictive-Modeling-for-Digital-Offer-Click-Through/
 | MAP@K metric explanation | https://www.kaggle.com/code/debarshichanda/map-at-k |
 | pandas read_parquet | https://pandas.pydata.org/docs/reference/api/pandas.read_parquet.html |
 | AMEX Campus Challenge | Kaggle (private competition) |
+
+---
+
+## License
+
+[MIT](LICENSE) © 2026 Kanak Potdar
